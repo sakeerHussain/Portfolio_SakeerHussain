@@ -5,12 +5,12 @@ const socials = [
   {
     name: "GitHub",
     icon: <FaGithub size={20} />,
-    url: "https://github.com/yourusername",
+    url: "https://github.com/sakeerHussain",
   },
   {
     name: "LinkedIn",
     icon: <FaLinkedin size={20} />,
-    url: "https://linkedin.com/in/yourusername",
+    url: "https://linkedin.com/in/sakeer-hussain-s",
   },
   // {
   //   name: "Twitter",

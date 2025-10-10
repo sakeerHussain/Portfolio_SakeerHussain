@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
-import SectionTitle from "../components/SectionTitle"; // make sure the path is correct
-
+import SectionTitle from "../components/SectionTitle"; 
+import emailjs, { send } from "@emailjs/browser";
+import { FaArrowLeft } from "react-icons/fa";
 const Contact = () => {
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    
+    emailjs.sendForm(
+      "service_27vdzjd",
+      "template_v1zy1cf",
+      form.current,
+      "WstMrgeVNv7sZM8In"
+    )
+    .then(
+      (result) => {
+        console.log(result.text);
+        alert("Message sent successfully!");
+      },
+      (error) => {
+        console.log(error.text);
+        alert("failed to send message, please try again.")
+      }
+    );
+  };
   return (
     <motion.section
       id="contact"
@@ -39,18 +63,22 @@ const Contact = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <form className="flex flex-col gap-5 h-full">
+          <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-5 h-full">
             <input
               type="text"
+              name="user_name"
               placeholder="Your Name"
+              required
               className="p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-cyan-400 outline-none"
             />
             <input
               type="email"
+              name="user_email"
               placeholder="Your Email"
               className="p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-cyan-400 outline-none"
             />
             <textarea
+            name="message"
               placeholder="Your Message"
               rows="5"
               className="p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-cyan-400 outline-none flex-1"

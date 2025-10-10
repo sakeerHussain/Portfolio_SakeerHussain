@@ -5,9 +5,9 @@ import SectionTitle from "./SectionTitle";
 // Sample experience data
 const experiences = [
   {
-    company: "Stack-Mode Innovations",
+    company: "Luminar Technolab",
     role: "MERN Stack Intern",
-    duration: "June 2024 - Nov 2024",
+    duration: "May 2025 - Nov 2025",
     description:
       "Built responsive web apps and learned MERN stack development.",
   },
@@ -18,13 +18,7 @@ const experiences = [
     description:
       "Taught robotics and coding to students, designed hands-on learning projects.",
   },
-  {
-    company: "Freelance",
-    role: "Web Developer",
-    duration: "Dec 2024 - Present",
-    description:
-      "Developed personal and client projects using React, Node.js, and Tailwind CSS.",
-  },
+
 ];
 
 const Experience = () => {

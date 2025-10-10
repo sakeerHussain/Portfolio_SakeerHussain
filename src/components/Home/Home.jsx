@@ -3,6 +3,13 @@ import SocialButtons from "../SocialButton/SocialButtons.jsx";
 import ScrollDownArrow from "../ScrollDownArrow.jsx";
 
 const Home = () => {
+  // function to scroll to contact
+  const handleScrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth"});
+    }
+  };
   return (
     <section
       id="home"
@@ -38,7 +45,9 @@ const Home = () => {
         >
           <div className="relative group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-600/50 to-purple-600/50 rounded-lg blur opacity-75 group-hover:opacity-100 transition-all duration-500"></div>
-            <button className="px-6 py-3 bg-gradient-to-r from-indigo-900/90 to-purple-900/90 rounded-lg text-white text-base font-medium relative z-10 flex items-center justify-center gap-2 group-hover:from-indigo-800/90 group-hover:to-purple-800/90 transition-all duration-300 transform group-hover:scale-105 group-active:scale-95">
+            <button
+              onClick={handleScrollToContact}
+            className="px-6 py-3 bg-gradient-to-r from-indigo-900/90 to-purple-900/90 rounded-lg text-white text-base font-medium relative z-10 flex items-center justify-center gap-2 group-hover:from-indigo-800/90 group-hover:to-purple-800/90 transition-all duration-300 transform group-hover:scale-105 group-active:scale-95">
               <span className="bg-gradient-to-r from-cyan-300 to-indigo-300 bg-clip-text text-transparent">
                 Let's Connect
               </span>

@@ -3,8 +3,22 @@ import { motion, AnimatePresence } from "framer-motion";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const desktopLinks = ["Home", "About", "Skills", "Experience", "Projects", "Contact"];
-  const mobileLinks = ["Home", "About", "Skills", "Experience", "Projects", "Contact"];
+  const desktopLinks = [
+    "Home",
+    "About",
+    "Skills",
+    "Experience",
+    "Projects",
+    "Contact",
+  ];
+  const mobileLinks = [
+    "Home",
+    "About",
+    "Skills",
+    "Experience",
+    "Projects",
+    "Contact",
+  ];
 
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -21,7 +35,14 @@ const Navbar = () => {
       setScrolled(window.scrollY > 50);
 
       const scrollPosition = window.scrollY + navbarHeight / 2;
-      const sections = ["home", "about", "skills","experience", "projects", "contact"];
+      const sections = [
+        "home",
+        "about",
+        "skills",
+        "experience",
+        "projects",
+        "contact",
+      ];
 
       for (let id of sections) {
         const section = document.getElementById(id);
@@ -100,11 +121,15 @@ const Navbar = () => {
             {/* Resume Button */}
             <div className="relative ml-4 group">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-600/50 to-purple-600/50 rounded-lg blur opacity-75 group-hover:opacity-100 transition-all duration-500"></div>
-              <button className="contact-btn px-4 py-2 bg-gradient-to-r from-indigo-900/90 to-purple-900/90 rounded-lg text-white text-sm font-medium relative z-10 flex items-center justify-center gap-2 group-hover:from-indigo-800/90 group-hover:to-purple-800/90 transition-all duration-300">
+              <a
+                href="/Sakeer-Hussain.S--Resume-20251010.pdf"
+                download="Sakeer_Hussain_Resume.pdf"
+                className="contact-btn px-4 py-2 bg-gradient-to-r from-indigo-900/90 to-purple-900/90 rounded-lg text-white text-sm font-medium relative z-10 flex items-center justify-center gap-2 group-hover:from-indigo-800/90 group-hover:to-purple-800/90 transition-all duration-300"
+              >
                 <span className="bg-gradient-to-r from-cyan-300 to-indigo-300 bg-clip-text text-transparent">
                   Resume
                 </span>
-              </button>
+              </a>
             </div>
           </div>
 
@@ -117,9 +142,18 @@ const Navbar = () => {
               aria-label="Toggle menu"
             >
               <div className="absolute w-5 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
-                <span className="block h-0.5 w-5 bg-cyan-400 mb-1 transform transition duration-300 ease-in-out" id="line1"></span>
-                <span className="block h-0.5 w-5 bg-cyan-400 mb-1 transform transition duration-300 ease-in-out" id="line2"></span>
-                <span className="block h-0.5 w-5 bg-cyan-400 transform transition duration-300 ease-in-out" id="line3"></span>
+                <span
+                  className="block h-0.5 w-5 bg-cyan-400 mb-1 transform transition duration-300 ease-in-out"
+                  id="line1"
+                ></span>
+                <span
+                  className="block h-0.5 w-5 bg-cyan-400 mb-1 transform transition duration-300 ease-in-out"
+                  id="line2"
+                ></span>
+                <span
+                  className="block h-0.5 w-5 bg-cyan-400 transform transition duration-300 ease-in-out"
+                  id="line3"
+                ></span>
               </div>
             </button>
           </div>

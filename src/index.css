@@ -63,8 +63,9 @@
   }
 
   section {
-  scroll-margin-top: 80px; /* same as navbar height */
-}
+    scroll-margin-top: 80px;
+    /* same as navbar height */
+  }
 
 
   /* Custom Scrollbar */
@@ -86,79 +87,96 @@
   }
 
 
-  
-/* === Animated Background Elements === */
-@keyframes moveGrid {
-  0% { background-position: 0 0; }
-  100% { background-position: 100px 100px; }
-}
 
-@keyframes float {
-  0%, 100% { transform: translateY(0) translateX(0); }
-  50% { transform: translateY(-30px) translateX(20px); }
-}
+  /* === Animated Background Elements === */
+  @keyframes moveGrid {
+    0% {
+      background-position: 0 0;
+    }
 
-/* @keyframes pulseGlow {
+    100% {
+      background-position: 100px 100px;
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+
+    50% {
+      transform: translateY(-30px) translateX(20px);
+    }
+  }
+
+  /* @keyframes pulseGlow {
   0%, 100% { opacity: 0.4; transform: scale(1); }
   50% { opacity: 0.7; transform: scale(1.1); }
 } */
 
-@keyframes pulseSpotlight {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.15;
+  @keyframes pulseSpotlight {
+
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.15;
+    }
+
+    50% {
+      transform: scale(1.1);
+      opacity: 0.25;
+    }
   }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.25;
+
+  /* Utility Classes */
+  /* Background grid */
+  .bg-grid {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 140px 50px;
+    pointer-events: none;
   }
-}
 
-/* Utility Classes */
-/* Background grid */
-.bg-grid {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 140px 50px;
-  pointer-events: none;
-}
+  /* Glowing spotlight */
+  /* index.css */
+  @keyframes pulseGlow {
+    0% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
 
-/* Glowing spotlight */
-/* index.css */
-@keyframes pulseGlow {
-  0% {
-    transform: scale(1);
-    opacity: 0.6;
+    50% {
+      transform: scale(1.1);
+      opacity: 0.9;
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
   }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.9;
+
+  .bg-glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.25), transparent 70%);
+    filter: blur(100px);
+    pointer-events: none;
+    animation: pulseGlow 6s ease-in-out infinite;
   }
-  100% {
-    transform: scale(1);
-    opacity: 0.6;
+
+
+
+  .animate-float {
+    animation: float 12s ease-in-out infinite;
   }
-}
 
-.bg-glow {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 255, 255, 0.25), transparent 70%);
-  filter: blur(100px);
-  pointer-events: none;
-  animation: pulseGlow 6s ease-in-out infinite;
-}
-
-
-
-.animate-float {
-  animation: float 12s ease-in-out infinite;
-}
-
-.animate-pulseGlow {
-  animation: pulseGlow 6s ease-in-out infinite;
-}
+  .animate-pulseGlow {
+    animation: pulseGlow 6s ease-in-out infinite;
+  }
 
 }
