@@ -2,58 +2,60 @@ import React from "react";
 import { motion } from "framer-motion";
 import SectionTitle from "./SectionTitle";
 
+import BookStore from "../assets/Bookstore.png";
+import ResumeBuilder from "../assets/resumeBuilder.png";
+import TaskManager from "../assets/Taskmanager.png";
+import ThinkPad from "../assets/ThinkPad.png";
+
 // Example project data
 const projects = [
   {
-    title: "Task Manager App",
+    title: "Book Store",
     description:
-      "A full-stack MERN task management app with drag-and-drop Kanban board and real-time updates.",
+      "A full-stack MERN Bookstore application that allows users to browse, search, and purchase books online with a secure checkout and admin panel for managing inventory.",
     tech: ["React", "Node.js", "MongoDB", "TailwindCSS"],
-    image:
-      "https://cdn.pixabay.com/photo/2020/05/30/09/53/todo-lists-5238324_1280.jpg",
+    image: BookStore,
     demo: "#",
     github: "#",
   },
   {
-    title: "Portfolio Website",
+    title: "Resume Builder Website",
     description:
-      "A minimalistic and modern personal portfolio showcasing projects, skills, and contact form.",
+      "A web application that allows users to create and customize professional resumes with ready-to-use templates and real-time preview functionality.",
     tech: ["React", "TailwindCSS", "Framer Motion"],
-    image:
-      "https://cdn.pixabay.com/photo/2017/08/06/01/23/computer-2593604_1280.jpg",
-    demo: "#",
-    github: "#",
+    image: ResumeBuilder,
+    demo: "https://resume-builder-kappa-liart-15.vercel.app/",
+    github: "https://github.com/sakeerHussain/Resume_builder",
   },
   {
-    title: "E-commerce Store",
+    title: "Task Management App",
     description:
-      "A fully functional e-commerce site with cart, checkout, and product filtering.",
-    tech: ["React", "Node.js", "Express", "MongoDB"],
-    image:
-      "https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849825_1280.jpg",
+      "A responsive task management application built with React and Tailwind CSS featuring a drag-and-drop Kanban board, task filtering, and a modern user interface for organizing projects efficiently.",
+    tech: ["React", "TailwindCSS"],
+    image: TaskManager,
     demo: "#",
     github: "#",
   },
-   {
-    title: "E-commerce Store",
+  ,
+  {
+    title: "ThinkPad – Note Taking App",
     description:
-      "A fully functional e-commerce site with cart, checkout, and product filtering.",
-    tech: ["React", "Node.js", "Express", "MongoDB"],
-    image:
-      "https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849825_1280.jpg",
+      "A lightweight and responsive note-taking web app built using HTML, CSS, and JavaScript that allows users to create, edit, and delete notes with data persistence using local storage.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    image: ThinkPad,
     demo: "#",
     github: "#",
   },
-   {
-    title: "E-commerce Store",
-    description:
-      "A fully functional e-commerce site with cart, checkout, and product filtering.",
-    tech: ["React", "Node.js", "Express", "MongoDB"],
-    image:
-      "https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849825_1280.jpg",
-    demo: "#",
-    github: "#",
-  },
+  // {
+  //   title: "E-commerce Store",
+  //   description:
+  //     "A fully functional e-commerce site with cart, checkout, and product filtering.",
+  //   tech: ["React", "Node.js", "Express", "MongoDB"],
+  //   image:
+  //     "https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849825_1280.jpg",
+  //   demo: "#",
+  //   github: "#",
+  // },
 ];
 
 export default function ProjectsCarousel() {
