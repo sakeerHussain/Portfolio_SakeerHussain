@@ -19,40 +19,52 @@ const Navbar = () => {
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
 
+  // Scrolled state for navbar shadow/padding
   useEffect(() => {
-    const handleScroll = () => {
-      const navbar = document.getElementById("navbar");
-      const navbarHeight = navbar ? navbar.offsetHeight : 0;
-
-      setScrolled(window.scrollY > 50);
-
-      const scrollPosition = window.scrollY + navbarHeight / 2;
-      const sections = [
-        "home",
-        "about",
-        "skills",
-        "experience",
-        "projects",
-        "contact",
-      ];
-
-      for (let id of sections) {
-        const section = document.getElementById(id);
-        if (section) {
-          const { offsetTop, offsetHeight } = section;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveSection(id);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Active section detection via IntersectionObserver
+  useEffect(() => {
+    const sectionIds = [
+      "home",
+      "about",
+      "skills",
+      "experience",
+      "projects",
+      "contact",
+    ];
+
+    const navbar = document.getElementById("navbar");
+    const navbarHeight = navbar ? navbar.offsetHeight : 64;
+
+    // rootMargin shrinks the observable viewport:
+    // - top: push it down by navbarHeight so sections only trigger after
+    //   they've cleared the fixed navbar
+    // - bottom: -55% means only the top 45% of the viewport is the
+    //   "active zone", so the highlight switches early and feels accurate
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: `-${navbarHeight}px 0px -55% 0px`,
+        threshold: 0,
+      }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   // Close mobile menu on resize to desktop
